@@ -1,0 +1,24 @@
+{
+  "name": "pixelperfect",
+  "version": "1.0.0",
+  "description": "Assignment",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Reet Pratayay",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.8.3",
+    "@material-ui/icons": "^4.5.1",
+    "clsx": "^1.0.4",
+    "express": "^4.17.1",
+    "next": "^9.1.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "recharts": "^2.0.0-beta.1",
+    "styled-components": "^4.4.1"
+  }
+}
