@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Fab from "@material-ui/core/Fab";
+import Chip from "@material-ui/core/Chip";
 
 export default function OutlinedCard(props) {
   const [buttonToggle, setButtonToggle] = useState({
@@ -35,9 +35,7 @@ export default function OutlinedCard(props) {
             <Typography>
               <b>{props.value}</b>
             </Typography>
-            <Fab variant="extended" style={{ backgroundColor: "lightGreen" }}>
-              status
-            </Fab>
+            <Chip label="STATUS" color="secondary"></Chip>
             <Typography>{props.time} </Typography>
             <Button
               variant={buttonToggle.variant}

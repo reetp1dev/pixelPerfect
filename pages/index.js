@@ -59,8 +59,8 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    }),
-    marginLeft: theme.spacing(6)
+    })
+    // marginLeft: theme.spacing(6)
   },
 
   list: {
@@ -74,9 +74,11 @@ const useStyles = makeStyles(theme => ({
     display: "none"
   },
   title: {
+    display: "inline",
+
     flexGrow: 1,
     color: "black",
-    marginLeft: theme.spacing(14),
+    marginLeft: theme.spacing(14.5),
     width: "20 px"
   },
   drawerPaper: {
@@ -165,10 +167,12 @@ export default function Dashboard() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
+
         <Container maxWidth="lg" className={classes.container}>
           <Typography component="h1" variant="h4" color="inherit">
             Your Jobs
           </Typography>
+
           {booklist.map(book => (
             <Cards
               pad={classes.cardname}
@@ -177,11 +181,11 @@ export default function Dashboard() {
               time={book.time}
             />
           ))}
-
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
+
+        <Box pt={4}>
+          <Copyright />
+        </Box>
       </main>
     </div>
   );
