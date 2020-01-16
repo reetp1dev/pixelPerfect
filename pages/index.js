@@ -17,6 +17,9 @@ import Link from "@material-ui/core/Link";
 import NotificationsIcon from "@material-ui/icons/NotificationsOutlined";
 import { mainListItems } from "../components/listItems";
 import Cards from "../components/Cards";
+import TablePagination from "@material-ui/core/TablePagination";
+import DropMenu from "../components/DropMenu";
+import Grid from "@material-ui/core/Grid";
 
 function Copyright() {
   return (
@@ -78,7 +81,7 @@ const useStyles = makeStyles(theme => ({
 
     flexGrow: 1,
     color: "black",
-    marginLeft: theme.spacing(14.5),
+    marginLeft: theme.spacing(16.4),
     width: "20 px"
   },
   drawerPaper: {
@@ -123,6 +126,13 @@ const useStyles = makeStyles(theme => ({
   cardname: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2)
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 160
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2)
   }
 }));
 
@@ -134,8 +144,22 @@ export default function Dashboard() {
     { name: "name 4", value: "value4", time: "time4" }
   ];
 
+  const rows = [1];
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = event => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   return (
     <div className={classes.root}>
@@ -172,6 +196,16 @@ export default function Dashboard() {
           <Typography component="h1" variant="h4" color="inherit">
             Your Jobs
           </Typography>
+          <Grid
+            container
+            direction="row"
+            justify="flex-start"
+            alignItems="center"
+          >
+            <DropMenu className={classes.formControl} type="categories" />
+            <DropMenu className={classes.formControl} type="industry" />
+            <DropMenu className={classes.formControl} type="status" />
+          </Grid>
 
           {booklist.map(book => (
             <Cards
@@ -181,6 +215,15 @@ export default function Dashboard() {
               time={book.time}
             />
           ))}
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
         </Container>
 
         <Box pt={4}>

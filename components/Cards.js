@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -14,46 +11,46 @@ export default function OutlinedCard(props) {
     variant: "outlined",
     view: "View"
   });
+  const [variant, setVariant] = useState("outlined");
   function handleRevise(event) {
     setButtonToggle({ ...buttonToggle, variant: "contained", view: "Revised" });
+    setVariant("default");
     console.log(buttonToggle.variant);
   }
 
   return (
     <Card className={props.pad} variant="outlined">
-      <CardActionArea>
-        <CardContent>
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            alignItems="center"
-          >
-            <Typography variant="h5" component="h3">
-              {props.name}
-            </Typography>
-            <Typography>
-              <b>{props.value}</b>
-            </Typography>
-            <Chip label="STATUS" color="secondary"></Chip>
-            <Typography>{props.time} </Typography>
-            <Button
-              variant={buttonToggle.variant}
-              onClick={event => {
-                handleRevise(event);
-              }}
-              color="secondary"
-            >
-              {buttonToggle.view}
-            </Button>
-          </Grid>
-
-          <Typography variant="body2" component="p" color="textSecondary">
-            <br />
-            ebook | Travel and Tourism | 400 words
+      <CardContent>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
+          <Typography variant="h5" component="h3">
+            {props.name}
           </Typography>
-        </CardContent>
-      </CardActionArea>
+          <Typography>
+            <b>{props.value}</b>
+          </Typography>
+          <Chip variant={variant} label="STATUS" color="secondary"></Chip>
+          <Typography>{props.time} </Typography>
+          <Button
+            variant={buttonToggle.variant}
+            onClick={event => {
+              handleRevise(event);
+            }}
+            color="secondary"
+          >
+            {buttonToggle.view}
+          </Button>
+        </Grid>
+
+        <Typography variant="body2" component="p" color="textSecondary">
+          <br />
+          ebook | Travel and Tourism | 400 words
+        </Typography>
+      </CardContent>
     </Card>
   );
 }
