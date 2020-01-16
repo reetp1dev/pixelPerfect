@@ -45,6 +45,7 @@ const useStyles = makeStyles(theme => ({
   toolbar: {
     paddingRight: 30 // keep right padding when drawer closed
   },
+
   toolbarIcon: {
     display: "flex",
     alignItems: "center",
@@ -134,6 +135,11 @@ const useStyles = makeStyles(theme => ({
   },
   selectEmpty: {
     marginTop: theme.spacing(2)
+  },
+  box: {
+    zIndex: -1,
+    paddingLeft: theme.spacing(0.75),
+    backgroundColor: "#f5f5f5"
   }
 }));
 
@@ -214,6 +220,7 @@ export default function Dashboard() {
               name={book.name}
               value={book.value}
               time={book.time}
+              className={classes.box}
             />
           ))}
           <TablePagination
