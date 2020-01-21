@@ -1,10 +1,7 @@
 import React from "react";
-
 import InputLabel from "@material-ui/core/InputLabel";
-
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-
 export default function DropMenu(props) {
   const [state, setState] = React.useState({
     age: "",
@@ -25,13 +22,22 @@ export default function DropMenu(props) {
   };
 
   return (
-    <div>
-      <FormControl variant="outlined" className={props.className}>
-        <InputLabel ref={inputLabel} htmlFor="outlined-age-native-simple">
+    <div color="secondary">
+      <FormControl
+        variant="outlined"
+        className={props.className}
+        color="secondary"
+      >
+        <InputLabel
+          ref={inputLabel}
+          htmlFor="outlined-age-native-simple"
+          color="secondary"
+        >
           {props.type}
         </InputLabel>
         <Select
           native
+          color="secondary"
           value={state.age}
           onChange={handleChange("age")}
           labelWidth={labelWidth}
@@ -40,10 +46,16 @@ export default function DropMenu(props) {
             id: "outlined-age-native-simple"
           }}
         >
-          <option value="" />
-          <option value={1}>Type 1</option>
-          <option value={2}>Type 2</option>
-          <option value={3}>Type 2</option>
+          <option value="" color="secondary" />
+          <option value={1} color="secondary">
+            Type 1
+          </option>
+          <option value={2} color="secondary">
+            Type 2
+          </option>
+          <option value={3} color="secondary">
+            Type 2
+          </option>
         </Select>
       </FormControl>
     </div>

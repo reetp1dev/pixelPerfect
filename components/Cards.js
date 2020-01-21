@@ -28,23 +28,29 @@ export default function OutlinedCard(props) {
   return (
     <Box
       className={props.className}
-      style={{ backgroundColor: buttonToggle.bookmarkColor }}
+      style={{ backgroundColor: buttonToggle.bookmarkColor, borderRadius: 10 }}
     >
       <Card className={props.pad} variant="outlined">
         <CardContent>
           <Grid
+            position="fixed"
             container
             direction="row"
             justify="space-between"
             alignItems="center"
           >
-            <Typography variant="h5" component="h3">
+            <Typography variant="h5" component="h3" position="fixed">
               {props.name}
             </Typography>
             <Typography>
               <b>{props.value}</b>
             </Typography>
-            <Chip variant={variant} label="STATUS" color="secondary"></Chip>
+            <Chip
+              variant={variant}
+              label="STATUS"
+              color="secondary"
+              position="fixed"
+            ></Chip>
             <Typography>{props.time} </Typography>
             <Button
               variant={buttonToggle.variant}
